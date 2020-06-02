@@ -15,14 +15,14 @@ module.exports = {
       const start = end - count;
       const query = {
         text:
-          'SELECT id, name, slogan, description, category, default_price FROM products WHERE id > $1 and id <= $2 ORDER BY id;',
+          'SELECT id, name, slogan, description, category, default_price FROM products WHERE id > $1 and id <= $2;',
         values: [start, end],
       };
       return pool.query(query);
     } else {
       const query = {
         text:
-          'SELECT id, name, slogan, description, category, default_price FROM products WHERE id <= $1 ORDER BY id;',
+          'SELECT id, name, slogan, description, category, default_price FROM products WHERE id <= $1;',
         values: [count],
       };
       return pool.query(query);
@@ -46,8 +46,7 @@ module.exports = {
     const query = {
       text: `SELECT id style_id, name, original_price, sale_price, default_style "default?", photos, skus
         FROM styles  
-        WHERE product_id = $1
-        ORDER BY id;`,
+        WHERE product_id = $1;`,
       values: [id],
     };
     return pool.query(query);

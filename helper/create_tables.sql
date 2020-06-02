@@ -33,6 +33,9 @@ ALTER TABLE styles
 CREATE INDEX idx_styles_prod_id 
   ON styles(product_id);
 
+  CREATE INDEX idx_products_id 
+  ON products(id);
+
 
 -- COMMANDS IN DOCKER
 
@@ -40,4 +43,4 @@ CREATE INDEX idx_styles_prod_id
 -- docker run --name sdc-dbpg -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v pgdata:/var/lib/postgresql/data postgres 
 -- Run API server
 -- docker build -t olivercomia/sdc-server .
--- docker run --name server-api -p 5000:5000 -d olivercomia/server-sdc
+-- docker run --name server-api -p 5000:5000 -d olivercomia/sdc-server
