@@ -2,6 +2,7 @@ const db = require('../db/db-model.js');
 
 module.exports = {
   getProductList: (req, res) => {
+    console.log('Query', req.query);
     db.getProductList(req.query)
       .then((results) => {
         res.json(results.rows);
@@ -10,6 +11,7 @@ module.exports = {
         res.sendStatus(404);
       });
   },
+
   getProductInfo: (req, res) => {
     db.getProductInfo(req.params.product_id)
       .then((results) => {
@@ -19,6 +21,7 @@ module.exports = {
         res.sendStatus(404);
       });
   },
+
   getRelated: (req, res) => {
     db.getRelated(req.params.product_id)
       .then((results) => {
@@ -28,6 +31,7 @@ module.exports = {
         res.sendStatus(404);
       });
   },
+
   getStyles: (req, res) => {
     db.getStyles(req.params.product_id)
       .then((results) => {

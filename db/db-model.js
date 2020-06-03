@@ -1,7 +1,8 @@
 const { Pool } = require('pg');
 const connectionString =
-  // 'postgres://postgres:postgres@host.docker.internal:5432/dbproducts';
-  'postgres://postgres:postgres@localhost:5432/dbproducts';
+  // 'postgres://postgres:postgres@host.docker.internal:5432/dbproducts_sdc';
+  'postgres://postgres:postgres@3.21.162.200:5432/dbproducts_sdc';
+// 'postgres://postgres:postgres@localhost:5432/dbproducts';
 
 const pool = new Pool({
   connectionString: connectionString,
@@ -28,6 +29,7 @@ module.exports = {
       return pool.query(query);
     }
   },
+
   getProductInfo: (id) => {
     const query = {
       text: 'SELECT * FROM products WHERE id = $1;',
@@ -35,6 +37,7 @@ module.exports = {
     };
     return pool.query(query);
   },
+
   getRelated: (id) => {
     const query = {
       text: 'SELECT related_products FROM related WHERE product_id = $1;',
@@ -42,6 +45,7 @@ module.exports = {
     };
     return pool.query(query);
   },
+
   getStyles: (id) => {
     const query = {
       text: `SELECT id style_id, name, original_price, sale_price, default_style "default?", photos, skus

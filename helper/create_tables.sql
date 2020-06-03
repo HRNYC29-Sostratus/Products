@@ -33,7 +33,7 @@ ALTER TABLE styles
 CREATE INDEX idx_styles_prod_id 
   ON styles(product_id);
 
-  CREATE INDEX idx_products_id 
+CREATE INDEX idx_products_id 
   ON products(id);
 
 

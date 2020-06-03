@@ -382,3 +382,23 @@ where id in (32,14,17,15,33,19,21,26,28,25,18,24,23,9,34,22,35,31,29,36,27,20,8,
 update styles 
 set skus = '{"null": null}'::json
 where id in (7, 47, 52, 48, 51, 9, 10, 50, 8,49);
+
+
+update styles 
+set sale_price = '0'
+where sale_price = 'null'
+and id > 0
+and id <= 1000000;
+
+
+EXPLAIN analyze SELECT id, name, slogan, description, category, default_price FROM products WHERE id <= 5 ORDER BY id;
+
+EXPLAIN analyze SELECT * FROM products WHERE id = 27;
+
+EXPLAIN analyze SELECT id, name, slogan, description, category, default_price, features FROM products WHERE id = 27;
+
+ SELECT id style_id, name, original_price, sale_price, default_style "default?", photos, skus
+        FROM styles  
+        WHERE product_id = 27;
+       
+EXPLAIN analyze SELECT related_products FROM related WHERE product_id = 27;
