@@ -44,3 +44,7 @@ CREATE INDEX idx_products_id
 -- Run API server
 -- docker build -t olivercomia/sdc-server .
 -- docker run --name server-api -p 5000:5000 -d olivercomia/sdc-server
+
+-- For Testing in Loader.io
+-- products/%{*:1-1000000}
+-- %{*:5-10}

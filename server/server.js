@@ -15,8 +15,8 @@ app.use(cors());
 
 app.use('/products', router);
 
-app.get('/loaderio-8c50e223d8ab331d9d64b62df0de6556/', function (req, res) {
-  res.send('loaderio-8c50e223d8ab331d9d64b62df0de6556');
+app.get('/loaderio-c135f1a97857b5cd896041374f5d630f/', function (req, res) {
+  res.send('loaderio-c135f1a97857b5cd896041374f5d630f');
 });
 
 app.listen(PORT, () => {

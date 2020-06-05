@@ -2,7 +2,6 @@ const db = require('../db/db-model.js');
 
 module.exports = {
   getProductList: (req, res) => {
-    console.log('Query', req.query);
     db.getProductList(req.query)
       .then((results) => {
         res.json(results.rows);
