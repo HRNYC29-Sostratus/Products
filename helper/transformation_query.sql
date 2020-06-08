@@ -374,7 +374,7 @@ where id = 7;
 
 
 update styles 
-set photos = '{"thumbnail_url": null,"url": null}'::json
+set photos = '[{"thumbnail_url": null,"url": null}]'::json
 where id in (32,14,17,15,33,19,21,26,28,25,18,24,23,9,34,22,35,31,29,36,27,20,8,13,30,7,10);
 
 
@@ -397,8 +397,10 @@ EXPLAIN analyze SELECT * FROM products WHERE id = 27;
 
 EXPLAIN analyze SELECT id, name, slogan, description, category, default_price, features FROM products WHERE id = 27;
 
- SELECT id style_id, name, original_price, sale_price, default_style "default?", photos, skus
+EXPLAIN analyze SELECT id style_id, name, original_price, sale_price, default_style "default?", photos, skus
         FROM styles  
         WHERE product_id = 27;
        
 EXPLAIN analyze SELECT related_products FROM related WHERE product_id = 27;
+
+VACUUM VERBOSE ANALYZE styles;
