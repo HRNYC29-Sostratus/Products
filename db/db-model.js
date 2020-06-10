@@ -1,8 +1,8 @@
 const { Pool } = require('pg');
 const connectionString =
-  // 'postgres://postgres:postgres@host.docker.internal:5432/dbproducts_sdc';
-  'postgres://postgres:postgres@localhost:5432/dbproducts';
-// 'postgres://postgres:postgres@52.15.232.164:5432/dbproducts_sdc';
+  'postgres://postgres:postgres@3.14.10.155:5432/dbproducts_sdc';
+// 'postgres://postgres:postgres@host.docker.internal:5432/dbproducts_sdc';
+// 'postgres://postgres:postgres@localhost:5432/dbproducts';
 
 const pool = new Pool({
   connectionString: connectionString,
